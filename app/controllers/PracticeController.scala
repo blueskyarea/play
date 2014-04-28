@@ -31,4 +31,8 @@ object PracticeController extends Controller {
       }
     }
   }
+
+  def showInputField() = Action {
+    Ok(views.html.inputField())
+  }
 }
