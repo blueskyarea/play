@@ -1,0 +1,45 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# SampleController
+GET     /sample1                    controllers.SampleController.sample1
+GET     /sample2                    controllers.SampleController.sample2
+GET     /sample3                    controllers.SampleController.sample3
+GET     /sample4                    controllers.SampleController.sample4
+GET     /sample5                    controllers.SampleController.sample5
+GET     /say                        controllers.SampleController.say
+GET     /sample6                    controllers.SampleController.sample6
+GET     /yahoo                      controllers.SampleController.yahoo
+GET     /sample7/:id                controllers.SampleController.sample7(id: Long)
+GET     /sample8/*path              controllers.SampleController.sample8(path: String)
+GET     /sample9/$id<[0-9]+>        controllers.SampleController.sample9(id: Long)
+GET     /sample10                   controllers.SampleController.sample10(fixedValue="fixed")
+GET     /sample11                   controllers.SampleController.sample11(defaultValue: Int ?= 1)
+GET     /sample12                   controllers.SampleController.sample12(optValue: Option[String])
+GET     /sample13                   controllers.SampleController.sample13
+GET     /sample14                   controllers.Default.redirect(to = "/sample2")
+
+# SessionController
+GET     /saveSession                controllers.SessionController.setSession
+GET     /readSession                controllers.SessionController.getSession
+GET     /removeSession              controllers.SessionController.removeSession
+GET     /saveFlash                  controllers.SessionController.setFlash
+GET     /readFlash                  controllers.SessionController.getFlash
+
+# TemplateController
+GET     /show                       controllers.TemplateController.show
+
+# UserController
+GET     /user/entry                 controllers.UserController.entryInit
+POST    /user/entry                 controllers.UserController.entrySubmit
+
+# PracticeController
+GET     /showRequest                controllers.PracticeController.showRequest
+GET     /show_birthday               controllers.PracticeController.showBirthDay
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
