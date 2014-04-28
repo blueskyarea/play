@@ -32,7 +32,19 @@ object PracticeController extends Controller {
     }
   }
 
+  /**
+   * 入力フィールドを表示する
+   * @return
+   */
   def showInputField() = Action {
     Ok(views.html.inputField())
+  }
+
+  /**
+   * 出力フィールドを表示する
+   * @return
+   */
+  def showOutputField() = Action {
+    Ok(views.html.outputField())
   }
 }
