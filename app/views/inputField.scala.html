@@ -1,0 +1,10 @@
+@()
+@main("input field"){
+
+<form action="@routes.PracticeController.showOutputField" method="post">
+  <h1>Input Field</h1>
+  <h2>textarea:</h2>
+  <textarea name="ta" rows="4" cols="40" placeholder="テキストを入力"></textarea><br>
+  <input type="submit" value="送信"><input type="reset" value="リセット">
+</form>
+}

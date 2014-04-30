@@ -1,10 +1,19 @@
 package controllers
 
 import play.api.mvc._
+import play.api.data._
+import play.api.data.Forms._
 import org.joda.time.DateTime
 import org.joda.time.Duration
 
+import models._
+
 object PracticeController extends Controller {
+  /** Form定義 */
+  val inputForm = Form(
+    mapping(
+      "ta" -> text)
+    (InputField.apply)(InputField.unapply))
 
   def showRequest = Action {
     aaa =>
@@ -30,5 +39,28 @@ object PracticeController extends Controller {
         Ok("誕生日まで" + day + "日です。")
       }
     }
+  }
+
+  /**
+   * 入力フィールドを表示する
+   * @return
+   */
+  def showInputField() = Action {
+    Ok(views.html.inputField())
+  }
+
+  /**
+   * 出力フィールドを表示する
+   * @return
+   */
+  def showOutputField() = Action { implicit request =>
+    inputForm.bindFromRequest.fold(
+      errors => {
+        Ok(views.html.outputField())
+      },
+      success => {
+        Ok(views.html.outputField(success.textarea))
+      }
+    )
   }
 }

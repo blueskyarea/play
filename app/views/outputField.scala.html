@@ -1,0 +1,9 @@
+@(ta: String = "")
+
+@import org.apache.commons.lang3.StringUtils
+
+@main("output field"){
+  <h1>Output Field</h1>
+  <h2>textarea:</h2>
+  <div id="ta">@StringUtils.abbreviate(ta, 20)</div>
+}
