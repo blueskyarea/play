@@ -63,4 +63,12 @@ object PracticeController extends Controller {
       }
     )
   }
+
+  /**
+   * リストを表示する
+   */
+  def showList() = Action {
+    val sampleList = Practice.findList()
+    Ok(views.html.showList(sampleList))
+  }
 }

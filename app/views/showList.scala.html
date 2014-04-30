@@ -1,0 +1,26 @@
+@(list: List[(Int, String, String)])
+@main("show List"){
+
+<h1>Show List</h1>
+<h2>タプルで表示</h2>
+<ul>
+@list.map { l =>
+  <li>
+    <p>@l._1</p>
+    <p>@l._2</p>
+    <p>@l._3</p>
+  </li>
+}
+</ul>
+
+<h2>caseで名前を付けて表示</h2>
+<ul>
+@list.map { case(no, str1, str2) =>
+  <li>
+    <p>@no</p>
+    <p>@str1</p>
+    <p>@str2</p>
+  </li>
+}
+</ul>
+}
